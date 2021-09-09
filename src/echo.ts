@@ -1,4 +1,4 @@
-export default async function echo(body) {
+export default async function echo(body: { echoed: boolean }) {
   const { echoed } = body;
 
   if (echoed === true) {

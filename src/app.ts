@@ -3,11 +3,13 @@ import { json } from 'body-parser';
 import echo from './echo';
 
 const app = express();
-const port = 3000;
+export default app;
+
+const port = process.env.ECHO_SERVER_PORT || 3000;
 
 app.use(json());
 
-async function echoHandler(req, res) {
+async function echoHandler(req: express.Request, res: express.Response) {
   try {
     res.send(
       await echo(req.body)
@@ -22,5 +24,5 @@ app.post('/api/echo', echoHandler);
 app.put('/api/echo', echoHandler);
 
 app.listen(port, () => {
-  console.log(`server is listening on ${port}`);
+  console.log(`echo server is listening on ${port}`);
 });
