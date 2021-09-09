@@ -7,10 +7,15 @@ const port = 3000;
 
 app.use(json());
 
-app.post('/api/echo', (req, res) => {
-  res.send(
-    echo(req.body)
-  );
+app.post('/api/echo', async (req, res) => {
+  try {
+    res.send(
+      await echo(req.body)
+    );
+  }
+  catch(err) {
+    res.status(500).send(err);
+  };
 });
 
 app.listen(port, () => {
