@@ -1,11 +1,15 @@
 import express from 'express';
+import { json } from 'body-parser';
+import echo from './echo';
 
 const app = express();
 const port = 3000;
 
-app.get('/api/echo', async (req, res) => {
+app.use(json());
+
+app.post('/api/echo', (req, res) => {
   res.send(
-    'I will be an echo server soon'
+    echo(req.body)
   );
 });
 
