@@ -7,7 +7,7 @@ const port = 3000;
 
 app.use(json());
 
-app.post('/api/echo', async (req, res) => {
+async function echoHandler(req, res) {
   try {
     res.send(
       await echo(req.body)
@@ -16,7 +16,10 @@ app.post('/api/echo', async (req, res) => {
   catch(err) {
     res.status(500).send(err);
   };
-});
+}
+
+app.post('/api/echo', echoHandler);
+app.put('/api/echo', echoHandler);
 
 app.listen(port, () => {
   console.log(`server is listening on ${port}`);
