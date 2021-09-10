@@ -17,7 +17,7 @@ async function echoHandler(req: express.Request, res: express.Response) {
   }
   catch(err) {
     res.status(500).send(err);
-  };
+  }
 }
 
 app.post('/api/echo', echoHandler);

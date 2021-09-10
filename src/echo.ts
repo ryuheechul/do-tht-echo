@@ -1,4 +1,8 @@
-export default async function echo(body: { echoed: boolean }) {
+interface Body {
+  echoed?: boolean;
+}
+
+export default async function echo(body: Body): Promise<Body> {
   const { echoed } = body;
 
   if (echoed === true) {
