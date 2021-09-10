@@ -1,4 +1,5 @@
 import express from 'express';
+import morgan from 'morgan';
 import { json } from 'body-parser';
 import echo from './echo';
 
@@ -7,6 +8,7 @@ export default app;
 
 const port = process.env.ECHO_SERVER_PORT || 3000;
 
+app.use(morgan('combined'))
 app.use(json());
 
 async function echoHandler(req: express.Request, res: express.Response) {
