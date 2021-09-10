@@ -1,14 +1,22 @@
-FROM node:14.17-slim
-
-ENV NODE_ENV=production
+FROM node:14.17-alpine as build
 
 WORKDIR /app
 
 COPY ["package.json", "yarn.lock", "./"]
 
-# because we still require devDependencies (at least `tsc`) to run it
-RUN yarn install --production=false
+RUN yarn install
 
 COPY . .
 
-CMD [ "yarn", "start" ]
+RUN yarn build
+RUN rm -rf node_modules
+
+FROM node:14.17-alpine
+
+ENV NODE_ENV=production
+WORKDIR /app
+
+COPY --from=build /app /app
+RUN yarn install
+
+CMD [ "yarn", "run:dist" ]
