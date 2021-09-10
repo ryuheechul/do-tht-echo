@@ -23,10 +23,16 @@ docker build --tag tht-echo . && \
 ### Run
 `yarn start`
 
+### Build and run seperately
+`yarn build && yarn run:dist`
+
 ### Dev
 > run with watching changes
 
 `yarn dev`
+
+### Lint
+`yarn lint`
 
 ### Test
 `yarn test`

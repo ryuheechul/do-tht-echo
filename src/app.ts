@@ -1,15 +1,20 @@
 import express from 'express';
 import morgan from 'morgan';
+import basicAuth from 'express-basic-auth';
 import { json } from 'body-parser';
 import echo from './echo';
+import users from '../data/allowedUsers.json'
 
 const app = express();
 export default app;
 
 const port = process.env.ECHO_SERVER_PORT || 3000;
 
-app.use(morgan('combined'))
-app.use(json());
+app.use(
+  json(),
+  morgan('combined'), // automatic logging for express
+  basicAuth({ users }),
+);
 
 async function echoHandler(req: express.Request, res: express.Response) {
   try {

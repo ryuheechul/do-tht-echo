@@ -13,6 +13,7 @@ describe("api", () => {
     chai
       .request(server)
       .post(`/api/echo`)
+      .auth('tester', 'testing')
       .send({
         whattimeisit: "time to echo!"
       })
@@ -27,6 +28,7 @@ describe("api", () => {
     chai
       .request(server)
       .put(`/api/echo`)
+      .auth('tester', 'testing')
       .send({
         whattimeisit: "time to echo!"
       })
@@ -41,6 +43,7 @@ describe("api", () => {
     chai
       .request(server)
       .post(`/api/echo`)
+      .auth('tester', 'testing')
       .send({
         echoed: true
       })
