@@ -4,15 +4,20 @@ import basicAuth from 'express-basic-auth';
 import { json } from 'body-parser';
 import echo from './echo';
 import users from '../data/allowedUsers.json'
+import listen from './listen';
 
 const app = express();
 export default app;
 
-const port = process.env.ECHO_SERVER_PORT || 3000;
+const port = parseInt(process.env.ECHO_SERVER_PORT || '') || 3000;
 
 app.use(
-  json(),
   morgan('combined'), // automatic logging for express
+);
+
+app.use(
+  '/api/echo',
+  json(),
   basicAuth({ users }),
 );
 
@@ -29,7 +34,6 @@ async function echoHandler(req: express.Request, res: express.Response) {
 
 app.post('/api/echo', echoHandler);
 app.put('/api/echo', echoHandler);
+app.get('/', (req, res) => res.send("Hi, I'm echo server!"))
 
-app.listen(port, () => {
-  console.log(`echo server is listening on ${port}`);
-});
+listen(app, port);

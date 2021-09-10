@@ -7,9 +7,9 @@
   },
   "main": "dist/src/app.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc && cp -r certs dist/certs",
     "run:dist": "node dist/src/app.js",
-    "start": "tsc && node dist/src/app.js",
+    "start": "npm run build && npm run run:dist",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "mocha --exit",

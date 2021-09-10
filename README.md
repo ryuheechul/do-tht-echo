@@ -1,5 +1,9 @@
 # tht-echo
 
+## Certificates
+
+`cd ./certs` and follow [README.md](./certs/README.md).
+
 ## Run with Docker
 
 `make`
