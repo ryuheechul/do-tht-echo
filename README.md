@@ -50,6 +50,9 @@ _This is more suitable for running for iterative developments_
 ### Lint
 `yarn lint`
 
+### Format
+`yarn lint:fix`
+
 ### Test
 `yarn test`
 
