@@ -1,7 +1,6 @@
 # tht-echo
 
 This is an echo server that exposes API via HTTPS (optionally HTTP too).
-
 ## Certificates
 
 Since we use HTTPS, we will need to prepare a certificate and a private key.
@@ -94,3 +93,6 @@ In fact, it might even be worse than (fast) failing APIs. Therefore, we should m
 ### Why didn't I choose others
 
 I think I will need to learn/experience more and be convinced more to consider other metrics to include as SLOs.
+
+## Rationales
+See [RATIONALES.md](./RATIONALES.md)
