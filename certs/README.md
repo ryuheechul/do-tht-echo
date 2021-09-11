@@ -1,4 +1,4 @@
-We are going to follow [this guide](https://web.dev/how-to-use-local-https/#setup) to expose echo server via HTTPS.
+We are going to follow [this guide](https://web.dev/how-to-use-local-https/#setup) to the expose echo server via HTTPS.
 
 ## Install
 
@@ -7,17 +7,18 @@ We need `mkcert` binary, install it via https://github.com/FiloSottile/mkcert#in
 
 No we have `mkcert`, let's generate the certificate and private key.
 
-Essentially do the followings.
+Essentially, follow the steps below.
 
 ```
-# let the device to trust mkcert-generated local CA
+# let the device trust mkcert-generated local CA
 mkcert -install
 
 # generate the cert for localhost
 mkcert localhost
-```
 
-And make sure `localhost.pem` and `localhost-key.pem` are generated under this directory.
+# and make sure `localhost.pem` and `localhost-key.pem` are generated under this directory
+ls localhost.pem localhost-key.pem
+```
 
 or
 
