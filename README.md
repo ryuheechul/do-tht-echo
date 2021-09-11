@@ -7,7 +7,7 @@ Since we use HTTPS, we will need to prepare a certificate and a private key.
 
 We also don't want to [see a warning sign](https://web.dev/how-to-use-local-https/#self-signed-certificate) either.
 
-`cd ./certs` and follow [README.md](./certs/README.md) to prepare certificates.
+`cd ./certs` and follow [certs/README.md](./certs/README.md) to prepare certificates.
 
 ## Run with Docker
 

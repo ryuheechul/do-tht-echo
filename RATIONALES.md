@@ -9,11 +9,11 @@ I also chose `yarn` over `npm` because I feel most comfortable with it and it se
 
 ## Code structure
 
-`app.ts` handles core HTTP level's handling requests and responses per endpoints including authentication and logging
+`app.ts` handles core HTTP level's handling requests and responses per endpoints including authentication and logging.
 
-`echo.ts` handles echo logic
+`echo.ts` handles echo logic.
 
-`listen.ts` handles branching of HTTPS or HTTP including handling certs files
+`listen.ts` handles branching of HTTPS or HTTP including handling certs files.
 
 ## Testing 
 
@@ -28,7 +28,7 @@ It uses `mocha` and `chai` testing frameworks, I chose them because they allow m
 
 `eslint` is a popular choice for Node.js projects and it was straightforward how to set up and use it.
 `prettier` is a popular choice for code formatting for Javascript projects but potentially conflicting with `eslint`.
-But thanks to `eslint-plugin-prettier`, integrating `prettier` into `eslint` was possible, so we only need to talk to `eslit` to get the benefit of beautiful consistent code formatting from `prettier`
+But thanks to `eslint-plugin-prettier`, integrating `prettier` into `eslint` was possible, so we only need to talk to `eslit` to get the benefit of beautiful consistent code formatting from `prettier`.
 
 ## Dockerfile / Makefile
 
@@ -37,7 +37,7 @@ Abstracted the `docker build` and `docker run` command via `Makefile`.
 Use multi-stage build so the final image content is as lean as possible.
 ## package.json
 
-`scripts` stanza is useful to add helpful commands that can be called by `yarn [script-name]` (or `npm run [script-name]`)
+`scripts` stanza is useful to add helpful commands that can be called by `yarn [script-name]` (or `npm run [script-name]`).
 
 ### devDependencies
 Whatever is not stricly necessary is under devDependencies. That saved about 100MB in the container image.
@@ -52,7 +52,7 @@ So I provide [certs/README.md](./certs/README.md) and [certs/Makefile](./certs/M
 
 ## Logging
 
-Instead of writing my own logging logic, I chose Express's official automatic logging middleware, [morgan](https://expressjs.com/en/resources/middleware/morgan.html) so we don't have to add a logging line in every endpoint
+Instead of writing my own logging logic, I chose Express's official automatic logging middleware, [morgan](https://expressjs.com/en/resources/middleware/morgan.html) so we don't have to add a logging line in every endpoint.
 
 ## Authentication
 I chose [Basic Auth](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme) because It's simple to understand and implement. As it's stated it's not secure but should be good for demonstration purposes.
