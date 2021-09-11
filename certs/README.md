@@ -30,3 +30,6 @@ make mkcert-install
 make localhost.pem
 ```
 
+## Why do this?
+
+Please see [../RATIONALES.md](../RATIONALES.md#certs).
